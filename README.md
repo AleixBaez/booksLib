@@ -9,5 +9,6 @@ With the present docker compose, docker-compose up runs a container with postgre
 From another terminal, using 
 psql -h localhost -p 5432 -U postgres ; password 1234 i can interact with postgres. 
 
+Write tests that set Up 
 Start another image that will, for now, allow me to interact with sergioPostgres through command-line.
 Work on app to interact with postgres db.

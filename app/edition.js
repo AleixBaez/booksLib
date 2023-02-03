@@ -31,4 +31,4 @@ class Edition {
              editor varchar(255), reference varchar(32), reference_type varchar(1), publish_date date, \
              first_publication_date date, support varchar(1) */
 
-module.exports={Edition,};
+module.exports={Edition};
