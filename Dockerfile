@@ -7,6 +7,10 @@ WORKDIR /app
 
 COPY . .
 
+RUN yarn install 
+CMD ["node", "run"]
+
+EXPOSE 3000
 
 # Creating app's user/group
 #RUN addgroup -S appgroup \
