@@ -1,0 +1,41 @@
+#services:
+#  app:
+#    image: node:18-alpine
+#    command: sh -c "yarn install && yarn run dev"
+#    ports:
+#      - "80:8000"
+#    depends_on:
+#      db:
+#        condition: service_healthy
+services: 
+  postgres:
+    image: postgres:13.4-alpine3.14
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - type: volume
+        source: postgres-sergio-data
+        target: /var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready -U ${PSQL_DB_USERNAME}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - default-net
+ 
+volumes:
+  postgres-sergio-data:
+
+networks:
+  default-net:
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8080:8080
