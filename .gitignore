@@ -1,12 +1,5 @@
 # Python cache
-*.egg-info
-*.pot
-*.py[co]
-.mypy_cache/
-.tox/
-__pycache__/
-MANIFEST
-
+/node_modules
 # Project documentation
 docs/build
 
