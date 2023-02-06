@@ -1,4 +1,6 @@
 const Edition = require('../app/edition');
+const Default = require('../app/default');
+const Money = require('dinero.js');
 
 test('CaputalizeWords', () => {
   const utility = require('../app/utility');
@@ -9,7 +11,7 @@ test('CaputalizeWords', () => {
 
 
 test('getTitle returns a null', () => {
-    const title = new Edition();
+    const title =  new Edition();
     expect( title.getTitle()).toEqual(null);
    
     
@@ -26,3 +28,19 @@ test('getTitle The title', () => {
 
 
   });
+
+
+test('default warehouse is Sant Joan 190', () => {
+ const defaultObject = new Default();
+  expect(defaultObject.warehouse()).toEqual('Sant Joan 190, Barcelona');
+
+  
+});
+
+test('default acquisition price is 0.5 EUR', () => {
+ const defaultObject = new Default();
+
+ expect( defaultObject.acquisition_price()).toEqual( Money({ amount:50, currency: 'EUR' }).toObject());
+
+
+});
