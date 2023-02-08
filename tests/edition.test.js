@@ -1,5 +1,6 @@
 const Edition = require('../app/edition');
 const Default = require('../app/default');
+const Status = require('../app/status');
 const Money = require('dinero.js');
 
 test('CaputalizeWords', () => {
@@ -28,6 +29,28 @@ test('getTitle The title', () => {
 
 
   });
+
+
+test('volume status', () =>{
+ myStatus = new Status();
+ 
+ expect(myStatus.getStatus()).toEqual('on sale');
+ myStatus.next(); 
+ expect(myStatus.getStatus()).toEqual('reserved');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('sold');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('delivery');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('delivered');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('returned');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('refunded');
+ myStatus.next();
+ expect(myStatus.getStatus()).toEqual('on sale');
+});
+
 
 
 test('default warehouse is Sant Joan 190', () => {
