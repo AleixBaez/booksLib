@@ -16,3 +16,5 @@ Work on app to interact with postgres db.
 Finish status class, its tests, finish volume class. 
 Do the setUp of postGres database with a table for status and another for editions.
 investigate how to handle users and logins
+
+Headless browser Puppeteer per fer end to end
