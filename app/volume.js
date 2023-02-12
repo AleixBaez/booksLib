@@ -3,11 +3,11 @@ const { NIL } = require("uuid");
 const ISO6391 = require('iso-639-1');
 const Edition = require('./edition');
 const Default = require ('./default');
-const Status = require ('./status')
+const Status = require ('./status');
 
 class Volume {
-    
-    constructor(edition, acquisition_price= new Default().default_acquisition_price(), acquisition_time= Date.now() ,warehowse= Default().default_warehouse() ) {
+        constructor(edition, acquisition_price=  Default().acquisition_price, warehowse= Default().warehouse(),  acquisition_time= Date.now() ) {
+
       
       this.edition =  edition;
       this.acquisition_price = acquisition_price;

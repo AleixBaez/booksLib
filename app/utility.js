@@ -6,6 +6,17 @@ function capitalizeOrNil(str, lower = false) {
   return (!str ? str : capitalize(str, lower));
 };
 
+
+function createEnum(values) {
+  const enumObject = {};
+  for (const val of values) {
+    enumObject[val] = val;
+  }
+  return Object.freeze(enumObject);
+}
+
 module.exports = {
-    capitalizeWords:capitalizeOrNil,   
+    capitalizeWords:capitalizeOrNil, 
+    createEnum:createEnum,  
 };
+

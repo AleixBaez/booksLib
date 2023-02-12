@@ -12,3 +12,7 @@ psql -h localhost -p 5432 -U postgres ; password 1234 i can interact with postgr
 Write tests that set Up 
 Start another image that will, for now, allow me to interact with sergioPostgres through command-line.
 Work on app to interact with postgres db.
+
+Finish status class, its tests, finish volume class. 
+Do the setUp of postGres database with a table for status and another for editions.
+investigate how to handle users and logins
