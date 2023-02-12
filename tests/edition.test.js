@@ -1,6 +1,8 @@
 const Edition = require('../app/edition');
 const Default = require('../app/default');
 const Status = require('../app/status');
+const Volume= require('../app/volume').Volume;
+
 const Money = require('dinero.js');
 
 test('CaputalizeWords', () => {
@@ -67,3 +69,15 @@ test('default acquisition price is 0.5 EUR', () => {
 
 
 });
+
+test('class volume basic access', () =>{
+ const  title = new Edition('MyTitle', 'seRgio naVarro', 'Andaguarra', //
+  '978-1-4028-9462-6','ca'  );        
+  var myVol = new Volume(title, Money({ amount:20, currency: 'EUR' }).toObject());
+  expect(myVol.getEdition() ).toStrictEqual(title);
+  expect(myVol.getAcquisitionPrice()).toEqual(Money({ amount:20, currency: 'EUR' }).toObject());
+  expect(myVol.getWarehouse()).toEqual( new Default().warehouse());
+  expect(myVol.getStatus()).toEqual(new Status());
+
+
+})

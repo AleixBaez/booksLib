@@ -6,13 +6,13 @@ const Default = require ('./default');
 const Status = require ('./status');
 
 class Volume {
-        constructor(edition, acquisition_price=  Default().acquisition_price, warehowse= Default().warehouse(),  acquisition_time= Date.now() ) {
+        constructor(edition, acquisition_price= new Default().acquisition_price, warehouse= new Default().warehouse(),  acquisition_time=  Date.now() ) {
 
       
       this.edition =  edition;
       this.acquisition_price = acquisition_price;
       this.acquisition_time = acquisition_time;
-      this.warehowse =  warehouse;
+      this.warehouse =  warehouse;
       this.status = new Status();
       this.sale_price = null;
       this.sale_time = null;
@@ -22,14 +22,16 @@ class Volume {
     getEdition(){return this.edition};  
     getAcquisitionPrice(){return this.acquisition_price};
     getAcquisitonTime(){return this.acquisition_time};  
-    getWarehouse(){return this.warehowse};  
+    getWarehouse(){return this.warehouse};  
     getStatus(){return this.status};
     getSalePrice(){return this.sale_price};  
     getSaleTime(){return this.sale_time};  
 
     setWarehouse(warehouse){
-     this.warehowse = warehouse;   
+     this.warehouse = warehouse;   
     };
+
+  
 }
 
 /*id varchar(16), title varchar(255), author varchar(16),\

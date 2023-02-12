@@ -1,6 +1,7 @@
 const utility = require('./utility');
 
-
+// I should change available statusses to make it a dictionary and be able to consult from client code
+// if the status of a volume corresponds to one or another thing.
 class AvailableStatusses{
 
     static #known_statusses =   ['on sale', 'reserved', 'sold', 'delivery', 'delivered', 'returned', 'refunded'];
