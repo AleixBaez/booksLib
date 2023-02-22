@@ -1,1 +1,0 @@
-const postgres = require('postgres');

@@ -1,5 +1,3 @@
-const utility = require('./utility');
-
 // I should change available statusses to make it a dictionary and be able to consult from client code
 // if the status of a volume corresponds to one or another thing.
 class AvailableStatusses {
@@ -82,36 +80,33 @@ class Status {
         }
     }
 
-    static isOnSale() {
+    isOnSale() {
         return this.status == AvailableStatusses.onSale();
     }
 
-    static isReserved() {
+    isReserved() {
         return this.status == AvailableStatusses.reserved();
     }
 
-    static isSold() {
+    isSold() {
         return this.status == AvailableStatusses.sold();
     }
 
-    static isDelivery() {
+    isDelivery() {
         return this.status == AvailableStatusses.delivery();
     }
 
-    static isDelivered() {
+    isDelivered() {
         return this.status == AvailableStatusses.delivered();
     }
 
-    static isReturned() {
+    isReturned() {
         return this.status == AvailableStatusses.returned();
     }
 
-    static isRefunded() {
+    isRefunded() {
         return this.status == AvailableStatusses.refunded();
     }
-
-
-
 }
 
 module.exports = Status;

@@ -1,4 +1,4 @@
-const Default = require('../app/default');
+const Default = require('../default');
 const Money = require('dinero.js');
 
 test('default warehouse is Sant Joan 190', () => {

@@ -1,4 +1,3 @@
-
 const Status = require('./status');
 const Default = require('./default');
 
@@ -43,10 +42,22 @@ class Volume {
     setWarehouse(warehouse) {
         this.warehouse = warehouse;
     }
+
+    sell(aMoney) {
+        const myStatus = this.status;
+        myStatus.isOnSale();
+
+        if (this.status.isOnSale()) {
+            this.sale_price = aMoney;
+            while (this.status.isSold() == false) {
+                this.status.next();
+            }
+        }
+    }
 }
 
 /*id varchar(16), title varchar(255), author varchar(16),\
              editor varchar(255), reference varchar(32), reference_type varchar(1), publish_date date, \
              first_publication_date date, support varchar(1) */
 
-module.exports = { Volume };
+module.exports = Volume;

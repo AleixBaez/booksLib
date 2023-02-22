@@ -1,11 +1,8 @@
 const Dinero = require('dinero.js');
 
-function money(amount, aString= 'EUR'){
-
+function money(amount, aString = 'EUR') {
     return new Dinero({ amount: cents, currency: 'EUR' }).toObject();
 }
-
-
 
 function capitalize(str, lower = false) {
     return (lower ? str.toLowerCase() : str).replace(
@@ -29,5 +26,5 @@ function createEnum(values) {
 module.exports = {
     capitalizeWords: capitalizeOrNil,
     createEnum: createEnum,
-    money
+    money,
 };

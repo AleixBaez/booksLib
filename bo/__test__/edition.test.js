@@ -1,4 +1,4 @@
-const Edition = require('../app/edition');
+const Edition = require('../edition');
 
 const Money = require('dinero.js');
 
