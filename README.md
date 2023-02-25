@@ -19,3 +19,6 @@ Do the setUp of postGres database with a table for status and another for editio
 investigate how to handle users and logins
 
 Headless browser Puppeteer per fer end to end
+
+docker exec -it <container name> /bin/bash to enter a running container
+yarn install removes many files from the project. Among them, it removes trials.js 

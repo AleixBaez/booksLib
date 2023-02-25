@@ -3,12 +3,17 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module",
+    "type": "commonjs",
+    "author": {
+        "name": "Aleix Báez Vidal",
+        "email": "aleix.b.v@gmail.com"
+    },
     "scripts": {
         "prettify": "prettier -l --write \"**/*.js\"",
         "test": "jest",
         "dev": "nodemon index.js",
-        "run": "node index.js"
+        "run": "node index.js",
+        "trials": "node trials.js"
     },
     "dependencies": {
         "dinero.js": "^1.9.1",

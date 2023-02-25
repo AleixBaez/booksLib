@@ -1,6 +1,6 @@
-const  express = require ('express');
+const express = require('express');
 const app = express();
-const db = require('./persistence');
+const db = require('./persistence/postgres');
 const getEditions = require('./routes/getEditions');
 const addEdition = require('./routes/addEdition');
 const updateEdition = require('./routes/updateEdition');

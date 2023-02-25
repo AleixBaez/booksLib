@@ -3,12 +3,12 @@ ARG BASE_NODE=node:19-alpine3.16
 ### Compiles whatever necessary for the app on top of a node image###
 FROM ${BASE_NODE} AS SERGIO_BASE
 
-WORKDIR /app
-
+WORKDIR /.
+#Workdir is /app within the container. It contains all the files copied from host at docker build
 COPY . .
 
 RUN yarn install 
-CMD ["node", "run"]
+#CMD ["node", "run"]
 
 EXPOSE 3000
 
