@@ -21,4 +21,11 @@ investigate how to handle users and logins
 Headless browser Puppeteer per fer end to end
 
 docker exec -it <container name> /bin/bash to enter a running container
-yarn install removes many files from the project. Among them, it removes trials.js 
+I have been not using buid.sh that tags properly the built image and, therefor, I have been not understanding the behavior of my code for a couple of days.
+
+Add tests that expect to interact with a db. The db should be running in an independent docker container. There should be a jest configuration that starts the tests
+by launching the mockup db container / creates a mockup. TearDown of tests removes it. Tests should demonstrate:
+-The node js app is able to reach a db server and login with the credentials stored in environment variables.
+-Creation of edition and volume tables.
+-Existence of edition and volume tables.
+-CRUD operations on edition and volume tables. 

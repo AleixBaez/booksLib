@@ -1,4 +1,9 @@
 Dockerfile
 docker-compose.yml
+docker-compose-sergio.yml
+docker-compose-postgres.yml
+docker-compose-all.yml
+rmAllContainers.sh
+build.sh
 .vscode
 node_modules
