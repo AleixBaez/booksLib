@@ -7,7 +7,7 @@ services:
         env_file:
             - .env_app
         ports:
-            - '${APPORT}:{$APPORT}'
+            - '${APPORT}:${APPORT}'
         depends_on:
             postgres:
                 condition: service_healthy

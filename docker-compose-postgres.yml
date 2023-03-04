@@ -18,7 +18,7 @@ services:
             timeout: 5s
             retries: 5
         ports:
-            - '5432:5432'
+            - '${PSQL_DB_PORT}:${PSQL_DB_PORT}'
         networks:
             - default-net
 
