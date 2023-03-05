@@ -9,9 +9,8 @@ const {
     POSTGRES_PASSWORD: PASSWORD,
     PSQL_DB_PORT: PORT,
     PGHOST: HOST,
-    PSQL_DB_DATABASE: DATABASE,
-    PSQL_DB_USERNAME: DB_USER,
-    PSQL_DB_PASSWORD: DB_USER_PASSWORD,
+    PGDATABASE: DATABASE
+  
 } = process.env;
 
 const client = new Client({
@@ -19,6 +18,7 @@ const client = new Client({
     port: PORT,
     user: USER,
     password: PASSWORD,
+    database: DATABASE,
     statement_timeout: 1000, // number of milliseconds before a statement in query will time out, default is no timeout
     query_timeout: 1000, // number of milliseconds before a query call will timeout, default is no timeout
     application_name: 'Sergio', // The name of the application that created this Client instance
@@ -31,7 +31,7 @@ client
     .then(() => console.log('connected'))
     .catch((err) => console.error('connection error', err.stack));
 
-client.query('CREATE DATABASE IF NOT EXISTS booksLib').then().catch().then();
+client.query('CREATE TABLE IF NOT EXISTS edition (id varchar(36), name varchar(255), completed boolean)').then().catch().then();
 
 client
     .end()
