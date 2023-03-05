@@ -13,12 +13,12 @@ services:
               source: postgres-sergio-data
               target: /var/lib/postgresql/data
         healthcheck:
-            test: pg_isready -U ${PSQL_DB_USERNAME}
+            test: pg_isready -U ${POSTGRES_USER}
             interval: 10s
             timeout: 5s
             retries: 5
         ports:
-            - '${PSQL_DB_PORT}:${PSQL_DB_PORT}'
+            - '${POSTGRES_PORT}:${POSTGRES_PORT}'
         networks:
             - default-net
 

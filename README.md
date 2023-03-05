@@ -9,7 +9,7 @@ On docker-compose, start the new image based on postgres.
 With the present docker compose, docker-compose up runs a container with postgres.
 From another terminal, using
 psql -h localhost -p 5432 -U postgres ; password 1234 i can interact with postgres.
-
+ psql -h localhost -p 4532  bookShop -U sergio
 
 
 Done - Finish status class, its tests, finish volume class.
