@@ -21,3 +21,12 @@ test('getTitle The title', () => {
     expect(title.getAuthor()).toEqual('Sergio Navarro');
     expect(title.getEditor()).toEqual('Andaguarra');
 });
+
+test('Sql table definition', () => {
+    expect(Edition.sqlTableDef()).toEqual(
+        'edition (id varchar(36), '+
+        'title varchar(255), author varchar(255), editor varchar(255), '+
+        'indexed_reference varchar(128), language varchar(3), support varchar(3), '+
+        'publication_date date, first_publication_date date);'
+    );
+});

@@ -3,14 +3,15 @@ const app = express();
 const waitPort = require('wait-port');
 const fs = require('fs');
 const { Client } = require('pg');
+const bo = require('./bo');
+require('dotenv').config();
 
 const {
     POSTGRES_USER: USER,
     POSTGRES_PASSWORD: PASSWORD,
     PSQL_DB_PORT: PORT,
     PGHOST: HOST,
-    PGDATABASE: DATABASE
-  
+    PGDATABASE: DATABASE,
 } = process.env;
 
 const client = new Client({
@@ -28,14 +29,17 @@ const client = new Client({
 
 client
     .connect()
-    .then(() => console.log('connected'))
+    .then(res => console.log('connected'))
     .catch((err) => console.error('connection error', err.stack));
 
-client.query('CREATE TABLE IF NOT EXISTS edition (id varchar(36), name varchar(255), completed boolean)').then().catch().then();
-
 client
+    .query('CREATE TABLE IF NOT EXISTS ' + bo.EditionBO.sqlTableDef())
+    .then(res => console.log(res))
+    .catch(e => console.error(e.stack));
+
+/*client
     .end()
-    .then(() => console.log('client has disconnected'))
+    .then(res => console.log('client has disconnected'))
     .catch((err) => console.error('error during disconnection', err.stack));
 
 /*
@@ -47,8 +51,8 @@ async function init(){
         waitForDns: true,
     });
 };
-*/
+
 app.use(express.json());
 app.use(express.static(__dirname + '/static'));
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(3000, () => console.log('Listening on port 3000'));*/

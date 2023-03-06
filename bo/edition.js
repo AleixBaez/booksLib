@@ -3,6 +3,13 @@ const ISO6391 = require('iso-639-1');
 const utility = require('./utility');
 
 class Edition {
+    static sqlTableDef() {
+        return 'edition (id varchar(36), '+
+        'title varchar(255), author varchar(255), editor varchar(255), '+
+        'indexed_reference varchar(128), language varchar(3), support varchar(3), '+
+        'publication_date date, first_publication_date date);';
+    }
+
     constructor(
         title = null,
         author = null,
