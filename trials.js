@@ -4,6 +4,7 @@ const waitPort = require('wait-port');
 const fs = require('fs');
 const { Client } = require('pg');
 const bo = require('./bo');
+const { EditionBO } = require('./bo');
 require('dotenv').config();
 
 const {
@@ -14,7 +15,7 @@ const {
     PGDATABASE: DATABASE,
 } = process.env;
 
-const client = new Client({
+const myCilent = new Client({
     host: HOST,
     port: PORT,
     user: USER,
@@ -27,15 +28,28 @@ const client = new Client({
     idle_in_transaction_session_timeout: 2000,
 });
 
-client
+myCilent
     .connect()
     .then(res => console.log('connected'))
     .catch((err) => console.error('connection error', err.stack));
 
-client
+    myCilent
     .query('CREATE TABLE IF NOT EXISTS ' + bo.EditionBO.sqlTableDef())
     .then(res => console.log(res))
     .catch(e => console.error(e.stack));
+
+let myEdition = new EditionBO('Mil anos de sobriedad', 
+                            'Garcia Marquez',
+                            'Barcanova', 
+                            'spqr', 
+                            'CAT', 
+                            'paper', 
+                            new Date("2022-03-25"), 
+                            new Date("2020-3-14") );
+
+client.query(myEdition.sqlRecord()).then(res=> console.log(res)).catch(e => console.error(e.stack));
+
+
 
 /*client
     .end()

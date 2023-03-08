@@ -23,8 +23,18 @@ function createEnum(values) {
     return Object.freeze(enumObject);
 }
 
+function printDate(date){
+    let yyyy = date.getFullYear();
+    let mm = String(date.getMonth() + 1).padStart(2, '0');
+    let dd = String(date.getDate()).padStart(2, '0');
+    return yyyy + '-' + mm + '-' + dd;
+ 
+
+}
+
 module.exports = {
     capitalizeWords: capitalizeOrNil,
     createEnum: createEnum,
     money,
+    printDate,
 };
