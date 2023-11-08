@@ -28,28 +28,48 @@ const myCilent = new Client({
     idle_in_transaction_session_timeout: 2000,
 });
 
+let myEdition = new EditionBO(
+    'Mil anos de sobriedad',
+    'Garcia Marquez',
+    'Barcanova',
+    'spqr',
+    'ca',
+    'pap',
+    new Date('2022-03-25'),
+    new Date('2020-3-14'),
+);
+
 myCilent
     .connect()
-    .then(res => console.log('connected'))
+    .then((res) => {
+        console.log('connected');
+    })
     .catch((err) => console.error('connection error', err.stack));
 
-    myCilent
-    .query('CREATE TABLE IF NOT EXISTS ' + bo.EditionBO.sqlTableDef())
-    .then(res => console.log(res))
-    .catch(e => console.error(e.stack));
+myCilent
+    .query('CREATE TABLE IF NOT EXISTS ' + bo.EditionBO.sqlTableDef() )
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((e) => console.error(e.stack));
 
-let myEdition = new EditionBO('Mil anos de sobriedad', 
-                            'Garcia Marquez',
-                            'Barcanova', 
-                            'spqr', 
-                            'CAT', 
-                            'paper', 
-                            new Date("2022-03-25"), 
-                            new Date("2020-3-14") );
+myCilent
+    .query(
+        'INSERT INTO ' +
+            EditionBO.sqlTableName() +
+            ' VALUES ' +
+            EditionBO.sqlParameters(),
+        myEdition.toPostgres()
+    )
+    .then((res) => {
+        console.log(res.rows[0]);
+    })
+    .catch((e) => console.error(e.stack));
 
-client.query(myEdition.sqlRecord()).then(res=> console.log(res)).catch(e => console.error(e.stack));
-
-
+myCilent
+    .query('SELECT * FROM ' + EditionBO.sqlTableName())
+    .then((res) => console.log(res.rows[0]))
+    .catch((e) => console.error(e.stack));
 
 /*client
     .end()

@@ -29,3 +29,5 @@ by launching the mockup db container / creates a mockup. TearDown of tests remov
 -Creation of edition and volume tables.
 -Existence of edition and volume tables.
 -CRUD operations on edition and volume tables.
+
+-BO means Business Object, does not mean the catalan word for good
